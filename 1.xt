@@ -1,0 +1,33 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building revenj-boot 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- dsl-platform-maven-plugin:1.0.1:generate-code (default) @ revenj-boot ---
+[info] Checking for latest compiler version due to download option
+[info] dsl-compiler.exe at latest version (2016-12-15)
+[INFO] 
+[INFO] --- dsl-platform-maven-plugin:1.0.1:sql-migration (default) @ revenj-boot ---
+[info] Checking for latest compiler version due to download option
+[info] dsl-compiler.exe at latest version (2016-12-15)
+[info] Creating SQL migration for Postgres ...
+[info] Migration saved to /home/aldo/IdeaProjects/revenjboot/sql/postgres-sql-migration-1482069083038.sql
+[info] No database changes detected.
+[info] Nothing to apply.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ revenj-boot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ revenj-boot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 22 source files to /home/aldo/IdeaProjects/revenjboot/target/classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:38.541s
+[INFO] Finished at: Sun Dec 18 20:51:47 WIB 2016
+[INFO] Final Memory: 24M/243M
+[INFO] ------------------------------------------------------------------------

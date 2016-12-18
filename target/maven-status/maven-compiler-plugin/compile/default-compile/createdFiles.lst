@@ -33,6 +33,7 @@ Security/converters/InheritedRoleConverter$2.class
 Security/converters/RoleConverter$2.class
 Security/converters/RolePermissionConverter.class
 Security/converters/GlobalPermissionConverter$5.class
+hello/SpringPermissionManager.class
 Security/converters/RolePermissionConverter$4.class
 Security/converters/InheritedRoleConverter$5.class
 Security/converters/UserConverter$4.class
