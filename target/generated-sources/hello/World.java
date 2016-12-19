@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6193.30391 
+* v1.7.6196.23272 
 */
 
 package hello;
@@ -101,7 +101,7 @@ public class World   implements java.lang.Cloneable, java.io.Serializable, org.r
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -9054824754115353379L;
+	private static final long serialVersionUID = 1173800173043155166L;
 	
 	private int ID;
 

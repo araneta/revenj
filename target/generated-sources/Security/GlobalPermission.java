@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6193.30391 
+* v1.7.6196.23272 
 */
 
 package Security;
@@ -102,7 +102,7 @@ public class GlobalPermission   implements java.lang.Cloneable, java.io.Serializ
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -1549831374690393296L;
+	private static final long serialVersionUID = -8235355156048086617L;
 	
 	private String Name;
 

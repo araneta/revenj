@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6193.30391 
+* v1.7.6196.23272 
 */
 
 package Security;
@@ -114,7 +114,7 @@ public class RolePermission   implements java.lang.Cloneable, java.io.Serializab
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 8228233489683195825L;
+	private static final long serialVersionUID = -3018717807181001170L;
 	
 	private String Name;
 

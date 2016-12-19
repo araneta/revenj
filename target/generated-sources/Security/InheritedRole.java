@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6193.30391 
+* v1.7.6196.23272 
 */
 
 package Security;
@@ -110,7 +110,7 @@ public class InheritedRole   implements java.lang.Cloneable, java.io.Serializabl
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 4172070198383204963L;
+	private static final long serialVersionUID = 8129016054055190244L;
 	
 	private String Name;
 

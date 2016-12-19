@@ -3,6 +3,11 @@ module hello {
     int ID { sequence; }
     string message;
   }
+  root Recipe
+    {
+        String    name { unique;}
+        String[]  ingredients;
+    }
 }
 module Security
 {
@@ -45,4 +50,6 @@ module Security
 		bool IsAllowed;
 		implements server 'Revenj.Security.IRolePermission';
 	}
+	
+	
 }

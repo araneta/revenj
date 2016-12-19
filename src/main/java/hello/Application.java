@@ -6,10 +6,8 @@ import org.revenj.Revenj;
 import org.revenj.extensibility.Container;
 import org.revenj.patterns.DataContext;
 import org.revenj.patterns.ServiceLocator;
-import org.revenj.spring.JacksonSetup;
-import org.revenj.spring.RevenjStartup;
 import org.revenj.security.PermissionManager;
-
+import org.revenj.spring.RevenjStartup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,8 +32,7 @@ public class Application implements ServletContextInitializer, WebApplicationIni
 
 	public Application() throws IOException {
 		container = Revenj.setup();
-		container.registerAs(new SpringPermissionManager(), PermissionManager.class);
-		RevenjStartup.setup(container);		
+		RevenjStartup.setup(container);
 		dataSource = container.resolve(DataSource.class);
 	}
 
@@ -46,6 +43,7 @@ public class Application implements ServletContextInitializer, WebApplicationIni
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		try {
+			container.registerAs(new SpringPermissionManager(servletContext), PermissionManager.class);
 			org.revenj.server.servlet.Application.configure(servletContext, container);
 			org.revenj.spring.RevenjStartup.setup(container);
 			org.revenj.spring.JacksonSetup.configure(handlerAdapter, container);

@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6193.30391 
+* v1.7.6196.23272 
 */
 
 
@@ -117,16 +117,36 @@ public class Boot implements org.revenj.extensibility.SystemAspect {
 		org.revenj.extensibility.PluginLoader plugins = container.resolve(org.revenj.extensibility.PluginLoader.class);
 		
 		hello.converters.WorldConverter hello$converter$WorldConverter = new hello.converters.WorldConverter(columns, container);
+		hello.converters.RecipeConverter hello$converter$RecipeConverter = new hello.converters.RecipeConverter(columns, container);
 		Security.converters.UserConverter Security$converter$UserConverter = new Security.converters.UserConverter(columns, container);
 		Security.converters.RoleConverter Security$converter$RoleConverter = new Security.converters.RoleConverter(columns, container);
 		Security.converters.InheritedRoleConverter Security$converter$InheritedRoleConverter = new Security.converters.InheritedRoleConverter(columns, container);
 		Security.converters.GlobalPermissionConverter Security$converter$GlobalPermissionConverter = new Security.converters.GlobalPermissionConverter(columns, container);
 		Security.converters.RolePermissionConverter Security$converter$RolePermissionConverter = new Security.converters.RolePermissionConverter(columns, container);
+		Inheritance.converters.PersonConverter Inheritance$converter$PersonConverter = new Inheritance.converters.PersonConverter(columns, container);
+		Inheritance.converters.EmployeeConverter Inheritance$converter$EmployeeConverter = new Inheritance.converters.EmployeeConverter(columns, container);
+		Inheritance.converters.WaiterConverter Inheritance$converter$WaiterConverter = new Inheritance.converters.WaiterConverter(columns, container);
+		Inheritance.converters.WaiterObjectConverter Inheritance$converter$WaiterObjectConverter = new Inheritance.converters.WaiterObjectConverter(columns, container);
+		Inheritance.converters.ServeTableConverter Inheritance$converter$ServeTableConverter = new Inheritance.converters.ServeTableConverter(columns, container);
+		Inheritance.converters.CustomerConverter Inheritance$converter$CustomerConverter = new Inheritance.converters.CustomerConverter(columns, container);
+		Inheritance.converters.OrderConverter Inheritance$converter$OrderConverter = new Inheritance.converters.OrderConverter(columns, container);
+		Inheritance.converters.LineItemConverter Inheritance$converter$LineItemConverter = new Inheritance.converters.LineItemConverter(columns, container);
+		Inheritance.converters.OrderInfoConverter Inheritance$converter$OrderInfoConverter = new Inheritance.converters.OrderInfoConverter(columns, container);
 		hello$converter$WorldConverter.__configure(container, plugins, metamodel);
+		hello$converter$RecipeConverter.__configure(container, plugins, metamodel);
 		Security$converter$UserConverter.__configure(container, plugins, metamodel);
 		Security$converter$RoleConverter.__configure(container, plugins, metamodel);
 		Security$converter$InheritedRoleConverter.__configure(container, plugins, metamodel);
 		Security$converter$GlobalPermissionConverter.__configure(container, plugins, metamodel);
 		Security$converter$RolePermissionConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$PersonConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$EmployeeConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$WaiterConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$WaiterObjectConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$ServeTableConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$CustomerConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$OrderConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$LineItemConverter.__configure(container, plugins, metamodel);
+		Inheritance$converter$OrderInfoConverter.__configure(container, plugins, metamodel);
 	}
 }

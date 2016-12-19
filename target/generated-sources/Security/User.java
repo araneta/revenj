@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6193.30391 
+* v1.7.6196.23272 
 */
 
 package Security;
@@ -114,7 +114,7 @@ public class User   implements java.lang.Cloneable, java.io.Serializable, org.re
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 1796694296014849969L;
+	private static final long serialVersionUID = 7200787253913374398L;
 	
 	private String Name;
 

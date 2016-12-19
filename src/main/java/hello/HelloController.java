@@ -18,6 +18,7 @@ public class HelloController {
 
 	@RequestMapping("/")
 	public List<World> index() {
+
 		return context.search(World.class);
 	}
 
