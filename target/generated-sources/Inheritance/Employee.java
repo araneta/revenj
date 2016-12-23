@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package Inheritance;
@@ -113,7 +113,7 @@ public class Employee   implements java.lang.Cloneable, java.io.Serializable, or
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -2796745819981492041L;
+	private static final long serialVersionUID = 155110336508059789L;
 	
 	private int ID;
 

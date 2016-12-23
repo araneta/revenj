@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package Inheritance;
@@ -105,7 +105,7 @@ public class Waiter   implements java.lang.Cloneable, java.io.Serializable, org.
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -3886349505048544100L;
+	private static final long serialVersionUID = -2821748275804626258L;
 	
 	private int ID;
 

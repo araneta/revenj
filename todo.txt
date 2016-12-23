@@ -1,0 +1,10 @@
+Todo:
+1. Domain Event
+1.1 Security
+2. Tymeleaf layout
+3. crud jquery / react
+4. master data
+5. Tasks
+6. Reporting
+
+Completed:

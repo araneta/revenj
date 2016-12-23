@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package Inheritance;
@@ -81,7 +81,7 @@ public final class ServeTable   implements java.io.Serializable, org.revenj.patt
 	public String toString() {
 		return URI != null ? "ServeTable(" + URI + ')' : "new ServeTable(" + super.hashCode() + ')';
 	}
-	private static final long serialVersionUID = -4186772869782699991L;
+	private static final long serialVersionUID = 5323463477822237367L;
 	
 	private String Table;
 

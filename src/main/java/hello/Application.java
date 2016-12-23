@@ -43,10 +43,20 @@ public class Application implements ServletContextInitializer, WebApplicationIni
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		try {
-			container.registerAs(new SpringPermissionManager(servletContext), PermissionManager.class);
+			//use Revenj permission manager based on roles
+			//container.registerAs(new SpringPermissionManager(servletContext), PermissionManager.class);
+
+			//setup initial data for convenience
+			//while we could use new InitialData(dataContext) that would break if we change the signature
+			//since InitialData has @Inject it will be registered in the revenj_container_Registration generated code
+			InitialData id = container.resolve(InitialData.class);
+			id.setup();
+
+			//configure Spring related stuff (to get @Autowired working)
 			org.revenj.server.servlet.Application.configure(servletContext, container);
 			org.revenj.spring.RevenjStartup.setup(container);
 			org.revenj.spring.JacksonSetup.configure(handlerAdapter, container);
+
 		} catch (Exception ex) {
 			throw new ServletException(ex);
 		}

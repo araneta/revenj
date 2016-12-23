@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package Inheritance;
@@ -67,7 +67,7 @@ public final class OrderInfo   implements java.io.Serializable, org.revenj.patte
 	public String toString() {
 		return "OrderInfo(" + URI + ')';
 	}
-	private static final long serialVersionUID = -3876112036961590127L;
+	private static final long serialVersionUID = -8207858291618591853L;
 	
 	private final java.time.LocalDate placed;
 

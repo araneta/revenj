@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package hello.converters;
@@ -43,9 +43,6 @@ public class WorldConverter implements ObjectConverter<hello.World> {
 		container.registerInstance(WorldConverter.class, this, true);
 		container.registerInstance(new org.revenj.patterns.Generic<org.revenj.database.postgres.ObjectConverter<hello.World>>(){}.type, this, true);
 		
-		container.registerFactory(new org.revenj.patterns.Generic<org.revenj.patterns.Repository<hello.World>>(){}.type, hello.repositories.WorldRepository::new, false);
-		container.registerFactory(new org.revenj.patterns.Generic<org.revenj.database.postgres.BulkRepository<hello.World>>(){}.type, hello.repositories.WorldRepository::new, false);
-		
 		column = columns.stream().filter(it -> "ID".equals(it.columnName)).findAny();
 		if (!column.isPresent()) throw new java.io.IOException("Unable to find 'ID' column in hello World_entity. Check if DB is in sync");
 		__index___ID = (int)column.get().order - 1;
@@ -53,6 +50,9 @@ public class WorldConverter implements ObjectConverter<hello.World> {
 		column = columnsExtended.stream().filter(it -> "ID".equals(it.columnName)).findAny();
 		if (!column.isPresent()) throw new java.io.IOException("Unable to find 'ID' column in hello World. Check if DB is in sync");
 		__index__extended_ID = (int)column.get().order - 1;
+		
+		container.registerFactory(new org.revenj.patterns.Generic<org.revenj.patterns.Repository<hello.World>>(){}.type, hello.repositories.WorldRepository::new, false);
+		container.registerFactory(new org.revenj.patterns.Generic<org.revenj.database.postgres.BulkRepository<hello.World>>(){}.type, hello.repositories.WorldRepository::new, false);
 		
 		column = columns.stream().filter(it -> "message".equals(it.columnName)).findAny();
 		if (!column.isPresent()) throw new java.io.IOException("Unable to find 'message' column in hello World_entity. Check if DB is in sync");
@@ -75,10 +75,10 @@ public class WorldConverter implements ObjectConverter<hello.World> {
 		
 		metamodel.registerProperty(hello.World.class, "getURI", "\"URI\"", hello.World::getURI);
 		
+		metamodel.registerProperty(hello.World.class, "getID", "\"ID\"", hello.World::getID);
+		
 		container.register(hello.repositories.WorldRepository.class);
 		container.registerFactory(new org.revenj.patterns.Generic<org.revenj.patterns.SearchableRepository<hello.World>>(){}.type, hello.repositories.WorldRepository::new, false);
-		
-		metamodel.registerProperty(hello.World.class, "getID", "\"ID\"", hello.World::getID);
 		
 		metamodel.registerProperty(hello.World.class, "getMessage", "\"message\"", hello.World::getMessage);
 		
@@ -150,6 +150,8 @@ public class WorldConverter implements ObjectConverter<hello.World> {
 	public hello.World fromExtended(PostgresReader reader, int outerContext, int context) throws java.io.IOException {
 		return from(reader, outerContext, context, readersExtended);
 	}
+	private final int __index___ID;
+	private final int __index__extended_ID;
 	
 	public static String buildURI(org.revenj.database.postgres.PostgresBuffer _sw, hello.World instance) throws java.io.IOException {
 		return buildURI(instance.getID(), _sw);
@@ -160,8 +162,6 @@ public class WorldConverter implements ObjectConverter<hello.World> {
 		org.revenj.database.postgres.converters.IntConverter.serializeURI(_sw, ID);
 		return _sw.bufferToString();
 	}
-	private final int __index___ID;
-	private final int __index__extended_ID;
 	private final int __index___message;
 	private final int __index__extended_message;
 }

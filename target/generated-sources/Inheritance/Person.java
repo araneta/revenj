@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package Inheritance;
@@ -101,7 +101,7 @@ public class Person   implements java.lang.Cloneable, java.io.Serializable, org.
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 3616343543012129029L;
+	private static final long serialVersionUID = 506324217543724323L;
 	
 	private int ID;
 

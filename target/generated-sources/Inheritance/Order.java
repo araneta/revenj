@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package Inheritance;
@@ -133,7 +133,7 @@ public class Order   implements java.lang.Cloneable, java.io.Serializable, org.r
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -5400249900882737892L;
+	private static final long serialVersionUID = 6623648712113938442L;
 	
 	private int ID;
 

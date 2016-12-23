@@ -1,55 +1,8 @@
+//module will be mapped to part of the namespace in Java
+//and to the schema name in Postgres
 module hello {
-  aggregate World(ID) {
-    int ID { sequence; }
-    string message;
-  }
-  root Recipe
-    {
-        String    name { unique;}
-        String[]  ingredients;
-    }
-}
-module Security
-{
-	root User(Name)
-	{
-		string(100) Name;
-		Role(Name) *Role;
-		binary PasswordHash;
-		bool IsAllowed;
-		implements server 'Revenj.Security.IUser';
+	//Matching table will be created in the Postgres (although with this DSL there is one extra implied field)
+	aggregate World {
+		string message;
 	}
-
-	root Role(Name)
-	{
-		string(100) Name;
-	}
-
-	root InheritedRole(Name, ParentName)
-	{
-		string(100) Name;
-		string(100) ParentName;
-		Role(Name) *Role;
-		Role(ParentName) *ParentRole;
-		implements server 'Revenj.Security.IUserRoles';
-	}
-
-	role Administrator;
-
-	root GlobalPermission(Name)
-	{
-		string(200) Name;
-		bool IsAllowed;
-		implements server 'Revenj.Security.IGlobalPermission';
-	}
-
-	root RolePermission(Name, RoleID)
-	{
-		string(200) Name;
-		Role *Role;
-		bool IsAllowed;
-		implements server 'Revenj.Security.IRolePermission';
-	}
-	
-	
 }

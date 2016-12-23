@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package Inheritance;
@@ -101,7 +101,7 @@ public class Customer   implements java.lang.Cloneable, java.io.Serializable, or
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -4470097177025692654L;
+	private static final long serialVersionUID = 89673773941481880L;
 	
 	private int ID;
 

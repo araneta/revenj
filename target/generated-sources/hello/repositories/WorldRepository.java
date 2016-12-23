@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 package hello.repositories;
@@ -469,12 +469,6 @@ public class WorldRepository   implements java.io.Closeable, org.revenj.patterns
 	}
 
 	
-	public static void __setupSequenceID(java.util.function.BiConsumer<java.util.Collection<hello.World>, java.sql.Connection> sequence) {
-		assignSequenceID = sequence;
-	}
-
-	private static java.util.function.BiConsumer<java.util.Collection<hello.World>, java.sql.Connection> assignSequenceID;
-	
 	public static void __setupPersist(
 			java.util.function.BiConsumer<java.util.Collection<hello.World>, java.util.Map.Entry<org.revenj.database.postgres.PostgresWriter, org.revenj.patterns.ServiceLocator>> insert, 
 			java.util.function.BiConsumer<java.util.Map.Entry<java.util.List<hello.World>, java.util.List<hello.World>>, java.util.Map.Entry<org.revenj.database.postgres.PostgresWriter, org.revenj.patterns.ServiceLocator>> update,
@@ -654,6 +648,12 @@ public class WorldRepository   implements java.io.Closeable, org.revenj.patterns
 		}
 	}
 
+	
+	public static void __setupSequenceID(java.util.function.BiConsumer<java.util.Collection<hello.World>, java.sql.Connection> sequence) {
+		assignSequenceID = sequence;
+	}
+
+	private static java.util.function.BiConsumer<java.util.Collection<hello.World>, java.sql.Connection> assignSequenceID;
 	
 	@org.springframework.beans.factory.annotation.Autowired
 	public WorldRepository(javax.sql.DataSource dataSource, org.revenj.patterns.ServiceLocator locator) {

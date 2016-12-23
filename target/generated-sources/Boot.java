@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6196.23272 
+* v1.7.6200.20202 
 */
 
 
@@ -116,13 +116,10 @@ public class Boot implements org.revenj.extensibility.SystemAspect {
 		org.revenj.database.postgres.jinq.JinqMetaModel metamodel = org.revenj.database.postgres.jinq.JinqMetaModel.configure(container);
 		org.revenj.extensibility.PluginLoader plugins = container.resolve(org.revenj.extensibility.PluginLoader.class);
 		
+		security.converters.UserConverter security$converter$UserConverter = new security.converters.UserConverter(columns, container);
+		security.converters.GlobalPermissionConverter security$converter$GlobalPermissionConverter = new security.converters.GlobalPermissionConverter(columns, container);
+		security.converters.RolePermissionConverter security$converter$RolePermissionConverter = new security.converters.RolePermissionConverter(columns, container);
 		hello.converters.WorldConverter hello$converter$WorldConverter = new hello.converters.WorldConverter(columns, container);
-		hello.converters.RecipeConverter hello$converter$RecipeConverter = new hello.converters.RecipeConverter(columns, container);
-		Security.converters.UserConverter Security$converter$UserConverter = new Security.converters.UserConverter(columns, container);
-		Security.converters.RoleConverter Security$converter$RoleConverter = new Security.converters.RoleConverter(columns, container);
-		Security.converters.InheritedRoleConverter Security$converter$InheritedRoleConverter = new Security.converters.InheritedRoleConverter(columns, container);
-		Security.converters.GlobalPermissionConverter Security$converter$GlobalPermissionConverter = new Security.converters.GlobalPermissionConverter(columns, container);
-		Security.converters.RolePermissionConverter Security$converter$RolePermissionConverter = new Security.converters.RolePermissionConverter(columns, container);
 		Inheritance.converters.PersonConverter Inheritance$converter$PersonConverter = new Inheritance.converters.PersonConverter(columns, container);
 		Inheritance.converters.EmployeeConverter Inheritance$converter$EmployeeConverter = new Inheritance.converters.EmployeeConverter(columns, container);
 		Inheritance.converters.WaiterConverter Inheritance$converter$WaiterConverter = new Inheritance.converters.WaiterConverter(columns, container);
@@ -132,13 +129,14 @@ public class Boot implements org.revenj.extensibility.SystemAspect {
 		Inheritance.converters.OrderConverter Inheritance$converter$OrderConverter = new Inheritance.converters.OrderConverter(columns, container);
 		Inheritance.converters.LineItemConverter Inheritance$converter$LineItemConverter = new Inheritance.converters.LineItemConverter(columns, container);
 		Inheritance.converters.OrderInfoConverter Inheritance$converter$OrderInfoConverter = new Inheritance.converters.OrderInfoConverter(columns, container);
+		security$converter$UserConverter.__configure(container, plugins, metamodel);
+		security$converter$GlobalPermissionConverter.__configure(container, plugins, metamodel);
+		metamodel.registerSpecification(security.GlobalPermission.WithPrefix.class, security.GlobalPermission.WithPrefix::rewriteLambda);
+		metamodel.register(new _security_GlobalPermission_WithPrefix_());
+		security$converter$RolePermissionConverter.__configure(container, plugins, metamodel);
+		metamodel.registerSpecification(security.RolePermission.ForRole.class, security.RolePermission.ForRole::rewriteLambda);
+		metamodel.register(new _security_RolePermission_ForRole_());
 		hello$converter$WorldConverter.__configure(container, plugins, metamodel);
-		hello$converter$RecipeConverter.__configure(container, plugins, metamodel);
-		Security$converter$UserConverter.__configure(container, plugins, metamodel);
-		Security$converter$RoleConverter.__configure(container, plugins, metamodel);
-		Security$converter$InheritedRoleConverter.__configure(container, plugins, metamodel);
-		Security$converter$GlobalPermissionConverter.__configure(container, plugins, metamodel);
-		Security$converter$RolePermissionConverter.__configure(container, plugins, metamodel);
 		Inheritance$converter$PersonConverter.__configure(container, plugins, metamodel);
 		Inheritance$converter$EmployeeConverter.__configure(container, plugins, metamodel);
 		Inheritance$converter$WaiterConverter.__configure(container, plugins, metamodel);
@@ -148,5 +146,53 @@ public class Boot implements org.revenj.extensibility.SystemAspect {
 		Inheritance$converter$OrderConverter.__configure(container, plugins, metamodel);
 		Inheritance$converter$LineItemConverter.__configure(container, plugins, metamodel);
 		Inheritance$converter$OrderInfoConverter.__configure(container, plugins, metamodel);
+	}
+	
+	private static class _security_GlobalPermission_WithPrefix_ implements org.revenj.database.postgres.jinq.transform.MethodHandlerVirtual {
+		@Override
+		public java.util.List<ch.epfl.labos.iu.orm.queryll2.symbolic.MethodSignature> getSupportedSignatures() {
+			return java.util.Collections.singletonList(new ch.epfl.labos.iu.orm.queryll2.symbolic.MethodSignature("security/GlobalPermission$WithPrefix", "test", "(Lsecurity/GlobalPermission;)Z"));
+		}
+
+		
+		private final static java.util.function.Function<security.GlobalPermission.WithPrefix, String> propprefix = security.GlobalPermission.WithPrefix::getPrefix;
+
+		private final static java.util.List<org.revenj.database.postgres.jinq.jpqlquery.GetterExpression> arguments = java.util.Arrays.asList(
+				new org.revenj.database.postgres.jinq.jpqlquery.GetterExpression(propprefix, "String", "varchar")
+		);
+
+		@Override
+		public org.revenj.database.postgres.jinq.jpqlquery.ColumnExpressions<?> handle(
+				ch.epfl.labos.iu.orm.queryll2.symbolic.MethodCallValue.VirtualMethodCallValue val,
+				org.revenj.database.postgres.jinq.transform.SymbExPassDown in,
+				org.revenj.database.postgres.jinq.transform.SymbExToColumns columns) throws ch.epfl.labos.iu.orm.queryll2.symbolic.TypedValueVisitorException {
+			return org.revenj.database.postgres.jinq.jpqlquery.ColumnExpressions.singleColumn(
+					org.revenj.database.postgres.jinq.jpqlquery.SimpleRowReader.READER,
+					new org.revenj.database.postgres.jinq.jpqlquery.SqlPredicateExpression("\"security\".\"GlobalPermission.WithPrefix\"", columns.lambdaIndex, arguments));
+		}
+	}
+	
+	private static class _security_RolePermission_ForRole_ implements org.revenj.database.postgres.jinq.transform.MethodHandlerVirtual {
+		@Override
+		public java.util.List<ch.epfl.labos.iu.orm.queryll2.symbolic.MethodSignature> getSupportedSignatures() {
+			return java.util.Collections.singletonList(new ch.epfl.labos.iu.orm.queryll2.symbolic.MethodSignature("security/RolePermission$ForRole", "test", "(Lsecurity/RolePermission;)Z"));
+		}
+
+		
+		private final static java.util.function.Function<security.RolePermission.ForRole, String> proprole = security.RolePermission.ForRole::getRole;
+
+		private final static java.util.List<org.revenj.database.postgres.jinq.jpqlquery.GetterExpression> arguments = java.util.Arrays.asList(
+				new org.revenj.database.postgres.jinq.jpqlquery.GetterExpression(proprole, "String", "varchar")
+		);
+
+		@Override
+		public org.revenj.database.postgres.jinq.jpqlquery.ColumnExpressions<?> handle(
+				ch.epfl.labos.iu.orm.queryll2.symbolic.MethodCallValue.VirtualMethodCallValue val,
+				org.revenj.database.postgres.jinq.transform.SymbExPassDown in,
+				org.revenj.database.postgres.jinq.transform.SymbExToColumns columns) throws ch.epfl.labos.iu.orm.queryll2.symbolic.TypedValueVisitorException {
+			return org.revenj.database.postgres.jinq.jpqlquery.ColumnExpressions.singleColumn(
+					org.revenj.database.postgres.jinq.jpqlquery.SimpleRowReader.READER,
+					new org.revenj.database.postgres.jinq.jpqlquery.SqlPredicateExpression("\"security\".\"RolePermission.ForRole\"", columns.lambdaIndex, arguments));
+		}
 	}
 }
