@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
-				.antMatchers("/", "/home").permitAll()
+				.antMatchers("/", "/home", "/homex").permitAll()
 				//allow public access to one of Revenj routes - will be handled by Revenj PermissionManager
 				.antMatchers("/Domain.svc/*").permitAll()
 				.anyRequest().authenticated()

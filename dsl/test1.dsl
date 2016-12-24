@@ -19,8 +19,7 @@ module Inheritance
         Employee.StartedWorking;
     }
     event ServeTable
-    {
-        //WaiterObject Waiter;
+    {        
         string Table;
     }
     aggregate Customer
