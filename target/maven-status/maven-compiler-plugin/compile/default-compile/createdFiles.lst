@@ -4,9 +4,11 @@ security/RolePermission$ForRole.class
 revenj_container_Registrations.class
 Inheritance/converters/WaiterConverter$3.class
 hello/converters/WorldConverter$5.class
+hello/security/jwt/JWTLoginFilter.class
 security/converters/GlobalPermissionConverter$5.class
 security/repositories/UserRegisteredRepository.class
 security/converters/UserConverter$3.class
+hello/security/jwt/JWTAuthenticationFilter.class
 Inheritance/repositories/ServeTableRepository$4.class
 Inheritance/repositories/OrderRepository.class
 Inheritance/WaiterObject.class
@@ -15,6 +17,7 @@ Inheritance/converters/EmployeeConverter$1.class
 Inheritance/converters/OrderInfoConverter$1.class
 Inheritance/converters/CustomerConverter.class
 security/repositories/RegisterUserRepository$5.class
+hello/security/jwt/AuthenticatedUser.class
 Inheritance/Employee$_ListXML.class
 Boot.class
 security/repositories/UserRegisteredRepository$3.class
@@ -25,6 +28,7 @@ Inheritance/LineItem$_ArrayXML.class
 Inheritance/Waiter$_ArrayXML.class
 hello/Application.class
 security/converters/RegisterUserConverter$1.class
+hello/security/jwt/AccountCredentials.class
 security/User$_ArrayXML.class
 security/repositories/UserRegisteredRepository$4.class
 META-INF/services/org.revenj.patterns.DomainEventHandler%3Cjava.util.concurrent.Callable%3Csecurity.RegisterUser%3E%3E
@@ -86,6 +90,7 @@ security/UserRegistered$_ListXML.class
 Inheritance/repositories/ServeTableRepository$3.class
 security/GlobalPermission$WithPrefix.class
 security/repositories/RolePermissionRepository.class
+hello/security/jwt/TokenAuthenticationService.class
 Inheritance/converters/OrderConverter$2.class
 Inheritance/converters/WaiterConverter$4.class
 Inheritance/converters/ServeTableConverter$3.class
