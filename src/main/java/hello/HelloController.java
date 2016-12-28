@@ -1,4 +1,4 @@
-package hello.controllers;
+package hello;
 
 import org.revenj.patterns.DataContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 import java.util.List;
-import hello.*;
 
 @RestController
 public class HelloController {

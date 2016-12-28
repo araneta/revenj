@@ -21,8 +21,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
-				.antMatchers("/", "/home", "/homex").permitAll()
-				//allow public access to one of Revenj routes - will be handled by Revenj PermissionManager
+				.antMatchers("/", "/home").permitAll()
+				.anyRequest().authenticated()
+				//allow logged in access to one of Revenj routes - will be handled by Revenj PermissionManager
+				//while more idiomatic way to write this security configuration is to just use Spring security...
+				//this way basic Revenj setup used ouside of Spring is shown
 				.antMatchers("/Domain.svc/*").permitAll()
 				.anyRequest().authenticated()
 				.and()
@@ -32,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.logout()
 				.permitAll();
+		http.csrf().disable();
 	}
 
 	@Autowired

@@ -32,4 +32,15 @@ module security {
 			string role;
 		}
 	}
+	
+	//use this event as a command
+	event RegisterUser {
+		string username;
+		binary password;
+	}
+	
+	//use this event as Domain event
+	event UserRegistered {
+		string username;
+	}
 }

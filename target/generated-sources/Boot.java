@@ -119,6 +119,8 @@ public class Boot implements org.revenj.extensibility.SystemAspect {
 		security.converters.UserConverter security$converter$UserConverter = new security.converters.UserConverter(columns, container);
 		security.converters.GlobalPermissionConverter security$converter$GlobalPermissionConverter = new security.converters.GlobalPermissionConverter(columns, container);
 		security.converters.RolePermissionConverter security$converter$RolePermissionConverter = new security.converters.RolePermissionConverter(columns, container);
+		security.converters.RegisterUserConverter security$converter$RegisterUserConverter = new security.converters.RegisterUserConverter(columns, container);
+		security.converters.UserRegisteredConverter security$converter$UserRegisteredConverter = new security.converters.UserRegisteredConverter(columns, container);
 		hello.converters.WorldConverter hello$converter$WorldConverter = new hello.converters.WorldConverter(columns, container);
 		Inheritance.converters.PersonConverter Inheritance$converter$PersonConverter = new Inheritance.converters.PersonConverter(columns, container);
 		Inheritance.converters.EmployeeConverter Inheritance$converter$EmployeeConverter = new Inheritance.converters.EmployeeConverter(columns, container);
@@ -136,6 +138,8 @@ public class Boot implements org.revenj.extensibility.SystemAspect {
 		security$converter$RolePermissionConverter.__configure(container, plugins, metamodel);
 		metamodel.registerSpecification(security.RolePermission.ForRole.class, security.RolePermission.ForRole::rewriteLambda);
 		metamodel.register(new _security_RolePermission_ForRole_());
+		security$converter$RegisterUserConverter.__configure(container, plugins, metamodel);
+		security$converter$UserRegisteredConverter.__configure(container, plugins, metamodel);
 		hello$converter$WorldConverter.__configure(container, plugins, metamodel);
 		Inheritance$converter$PersonConverter.__configure(container, plugins, metamodel);
 		Inheritance$converter$EmployeeConverter.__configure(container, plugins, metamodel);
