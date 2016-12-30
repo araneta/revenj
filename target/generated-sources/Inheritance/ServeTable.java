@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package Inheritance;
@@ -81,7 +81,7 @@ public final class ServeTable   implements java.io.Serializable, org.revenj.patt
 	public String toString() {
 		return URI != null ? "ServeTable(" + URI + ')' : "new ServeTable(" + super.hashCode() + ')';
 	}
-	private static final long serialVersionUID = 5323463477822237367L;
+	private static final long serialVersionUID = -3479738540698098929L;
 	
 	private String Table;
 
@@ -114,6 +114,20 @@ public final class ServeTable   implements java.io.Serializable, org.revenj.patt
 	}
 
 	
+	public ServeTable(org.revenj.database.postgres.PostgresReader reader, int context, org.revenj.database.postgres.ObjectConverter.Reader<ServeTable>[] readers) throws java.io.IOException {
+		for (org.revenj.database.postgres.ObjectConverter.Reader<ServeTable> rdr : readers) {
+			rdr.read(this, reader, context);
+		}
+	}
+
+	public static void __configureConverter(org.revenj.database.postgres.ObjectConverter.Reader<ServeTable>[] readers, int __index____event_id, int __index___QueuedAt, int __index___ProcessedAt, int __index___Table) {
+		
+		readers[__index____event_id] = (item, reader, context) -> { item.URI = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
+		readers[__index___QueuedAt] = (item, reader, context) -> { item.QueuedAt = org.revenj.database.postgres.converters.TimestampConverter.parseOffset(reader, context, false, false); return item; };
+		readers[__index___ProcessedAt] = (item, reader, context) -> { item.ProcessedAt = org.revenj.database.postgres.converters.TimestampConverter.parseOffset(reader, context, true, false); return item; };
+		readers[__index___Table] = (item, reader, context) -> { item.Table = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
+	}
+	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfInheritance.ServeTable")
 	public static class _ArrayXML {
 		@javax.xml.bind.annotation.XmlElement(name = "Inheritance.ServeTable")
@@ -136,20 +150,6 @@ public final class ServeTable   implements java.io.Serializable, org.revenj.patt
 			xml.value = s;
 			return xml;
 		};
-	}
-	
-	public ServeTable(org.revenj.database.postgres.PostgresReader reader, int context, org.revenj.database.postgres.ObjectConverter.Reader<ServeTable>[] readers) throws java.io.IOException {
-		for (org.revenj.database.postgres.ObjectConverter.Reader<ServeTable> rdr : readers) {
-			rdr.read(this, reader, context);
-		}
-	}
-
-	public static void __configureConverter(org.revenj.database.postgres.ObjectConverter.Reader<ServeTable>[] readers, int __index____event_id, int __index___QueuedAt, int __index___ProcessedAt, int __index___Table) {
-		
-		readers[__index____event_id] = (item, reader, context) -> { item.URI = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
-		readers[__index___QueuedAt] = (item, reader, context) -> { item.QueuedAt = org.revenj.database.postgres.converters.TimestampConverter.parseOffset(reader, context, false, false); return item; };
-		readers[__index___ProcessedAt] = (item, reader, context) -> { item.ProcessedAt = org.revenj.database.postgres.converters.TimestampConverter.parseOffset(reader, context, true, false); return item; };
-		readers[__index___Table] = (item, reader, context) -> { item.Table = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
 	}
 	
 	static {

@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package hello;
@@ -77,17 +77,6 @@ public class World   implements java.lang.Cloneable, java.io.Serializable, org.r
 		return "World(" + URI + ')';
 	}
 	
-	
-	public World(
-			final String message) {
-			
-		this.ID = --__SequenceCounterID__;
-		setMessage(message);
-		this.URI = java.lang.Integer.toString(this.ID);
-		this.URI = java.lang.Integer.toString(this.ID);
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private World(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -101,7 +90,7 @@ public class World   implements java.lang.Cloneable, java.io.Serializable, org.r
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 3686392411386948204L;
+	private static final long serialVersionUID = 4772508138311077860L;
 	
 	private int ID;
 
@@ -157,7 +146,6 @@ public class World   implements java.lang.Cloneable, java.io.Serializable, org.r
 		return this;
 	}
 
-	private transient World __originalValue;
 	
 	static {
 		hello.repositories.WorldRepository.__setupPersist(
@@ -200,6 +188,7 @@ public class World   implements java.lang.Cloneable, java.io.Serializable, org.r
 			}
 		);
 	}
+	private transient World __originalValue;
 	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfhello.World")
 	public static class _ArrayXML {
@@ -245,4 +234,15 @@ public class World   implements java.lang.Cloneable, java.io.Serializable, org.r
 		readers[__index__extended_ID] = (item, reader, context) -> { item.ID = org.revenj.database.postgres.converters.IntConverter.parse(reader); return item; };
 		readers[__index__extended_message] = (item, reader, context) -> { item.message = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
 	}
+	
+	
+	public World(
+			final String message) {
+			
+		this.ID = --__SequenceCounterID__;
+		setMessage(message);
+		this.URI = java.lang.Integer.toString(this.ID);
+		this.URI = java.lang.Integer.toString(this.ID);
+	}
+
 }

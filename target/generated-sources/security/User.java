@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package security;
@@ -85,22 +85,6 @@ public class User   implements java.lang.Cloneable, java.io.Serializable, org.re
 		return "User(" + URI + ')';
 	}
 	
-	
-	public User(
-			final String name,
-			final java.util.Set<String> roles,
-			final byte[] password,
-			final boolean isAllowed) {
-			
-		URI = java.lang.Integer.toString(System.identityHashCode(this));
-		setName(name);
-		setRoles(roles);
-		setPassword(password);
-		setIsAllowed(isAllowed);
-		this.URI = this.name;
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private User(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -118,7 +102,7 @@ public class User   implements java.lang.Cloneable, java.io.Serializable, org.re
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 6314874540728894861L;
+	private static final long serialVersionUID = 4979522552427916684L;
 	
 	private String name;
 
@@ -196,7 +180,6 @@ public class User   implements java.lang.Cloneable, java.io.Serializable, org.re
 		return this;
 	}
 
-	private transient User __originalValue;
 	
 	static {
 		security.repositories.UserRepository.__setupPersist(
@@ -239,6 +222,7 @@ public class User   implements java.lang.Cloneable, java.io.Serializable, org.re
 			}
 		);
 	}
+	private transient User __originalValue;
 	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfsecurity.User")
 	public static class _ArrayXML {
@@ -288,4 +272,20 @@ public class User   implements java.lang.Cloneable, java.io.Serializable, org.re
 		readers[__index__extended_password] = (item, reader, context) -> { item.password = org.revenj.database.postgres.converters.ByteaConverter.parse(reader, context); return item; };
 		readers[__index__extended_isAllowed] = (item, reader, context) -> { item.isAllowed = org.revenj.database.postgres.converters.BoolConverter.parse(reader); return item; };
 	}
+	
+	
+	public User(
+			final String name,
+			final java.util.Set<String> roles,
+			final byte[] password,
+			final boolean isAllowed) {
+			
+		URI = java.lang.Integer.toString(System.identityHashCode(this));
+		setName(name);
+		setRoles(roles);
+		setPassword(password);
+		setIsAllowed(isAllowed);
+		this.URI = this.name;
+	}
+
 }

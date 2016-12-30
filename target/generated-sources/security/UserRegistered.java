@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package security;
@@ -81,7 +81,7 @@ public final class UserRegistered   implements java.io.Serializable, org.revenj.
 	public String toString() {
 		return URI != null ? "UserRegistered(" + URI + ')' : "new UserRegistered(" + super.hashCode() + ')';
 	}
-	private static final long serialVersionUID = -8850467941842556919L;
+	private static final long serialVersionUID = -4056751550267598563L;
 	
 	private String username;
 
@@ -114,6 +114,20 @@ public final class UserRegistered   implements java.io.Serializable, org.revenj.
 	}
 
 	
+	public UserRegistered(org.revenj.database.postgres.PostgresReader reader, int context, org.revenj.database.postgres.ObjectConverter.Reader<UserRegistered>[] readers) throws java.io.IOException {
+		for (org.revenj.database.postgres.ObjectConverter.Reader<UserRegistered> rdr : readers) {
+			rdr.read(this, reader, context);
+		}
+	}
+
+	public static void __configureConverter(org.revenj.database.postgres.ObjectConverter.Reader<UserRegistered>[] readers, int __index____event_id, int __index___QueuedAt, int __index___ProcessedAt, int __index___username) {
+		
+		readers[__index____event_id] = (item, reader, context) -> { item.URI = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
+		readers[__index___QueuedAt] = (item, reader, context) -> { item.QueuedAt = org.revenj.database.postgres.converters.TimestampConverter.parseOffset(reader, context, false, false); return item; };
+		readers[__index___ProcessedAt] = (item, reader, context) -> { item.ProcessedAt = org.revenj.database.postgres.converters.TimestampConverter.parseOffset(reader, context, true, false); return item; };
+		readers[__index___username] = (item, reader, context) -> { item.username = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
+	}
+	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfsecurity.UserRegistered")
 	public static class _ArrayXML {
 		@javax.xml.bind.annotation.XmlElement(name = "security.UserRegistered")
@@ -136,20 +150,6 @@ public final class UserRegistered   implements java.io.Serializable, org.revenj.
 			xml.value = s;
 			return xml;
 		};
-	}
-	
-	public UserRegistered(org.revenj.database.postgres.PostgresReader reader, int context, org.revenj.database.postgres.ObjectConverter.Reader<UserRegistered>[] readers) throws java.io.IOException {
-		for (org.revenj.database.postgres.ObjectConverter.Reader<UserRegistered> rdr : readers) {
-			rdr.read(this, reader, context);
-		}
-	}
-
-	public static void __configureConverter(org.revenj.database.postgres.ObjectConverter.Reader<UserRegistered>[] readers, int __index____event_id, int __index___QueuedAt, int __index___ProcessedAt, int __index___username) {
-		
-		readers[__index____event_id] = (item, reader, context) -> { item.URI = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
-		readers[__index___QueuedAt] = (item, reader, context) -> { item.QueuedAt = org.revenj.database.postgres.converters.TimestampConverter.parseOffset(reader, context, false, false); return item; };
-		readers[__index___ProcessedAt] = (item, reader, context) -> { item.ProcessedAt = org.revenj.database.postgres.converters.TimestampConverter.parseOffset(reader, context, true, false); return item; };
-		readers[__index___username] = (item, reader, context) -> { item.username = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
 	}
 	
 	static {

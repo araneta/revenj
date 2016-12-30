@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package security;
@@ -81,20 +81,6 @@ public class RolePermission   implements java.lang.Cloneable, java.io.Serializab
 		return "RolePermission(" + URI + ')';
 	}
 	
-	
-	public RolePermission(
-			final String name,
-			final String roleID,
-			final boolean isAllowed) {
-			
-		URI = java.lang.Integer.toString(System.identityHashCode(this));
-		URI = java.lang.Integer.toString(System.identityHashCode(this));
-		setName(name);
-		setRoleID(roleID);
-		setIsAllowed(isAllowed);
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private RolePermission(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -110,7 +96,7 @@ public class RolePermission   implements java.lang.Cloneable, java.io.Serializab
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -2371650483310437640L;
+	private static final long serialVersionUID = -942288008768849929L;
 	
 	private String name;
 
@@ -187,7 +173,7 @@ public static class ForRole   implements java.io.Serializable, org.revenj.patter
 		this.role = "";
 	}
 
-	private static final long serialVersionUID = -672323294001189547L;
+	private static final long serialVersionUID = 523487405172840746L;
 	
 	private String role;
 
@@ -218,7 +204,6 @@ public static class ForRole   implements java.io.Serializable, org.revenj.patter
 		}
 }
 
-	private transient RolePermission __originalValue;
 	
 	static {
 		security.repositories.RolePermissionRepository.__setupPersist(
@@ -261,6 +246,7 @@ public static class ForRole   implements java.io.Serializable, org.revenj.patter
 			}
 		);
 	}
+	private transient RolePermission __originalValue;
 	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfsecurity.RolePermission")
 	public static class _ArrayXML {
@@ -308,4 +294,18 @@ public static class ForRole   implements java.io.Serializable, org.revenj.patter
 		readers[__index__extended_roleID] = (item, reader, context) -> { item.roleID = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
 		readers[__index__extended_isAllowed] = (item, reader, context) -> { item.isAllowed = org.revenj.database.postgres.converters.BoolConverter.parse(reader); return item; };
 	}
+	
+	
+	public RolePermission(
+			final String name,
+			final String roleID,
+			final boolean isAllowed) {
+			
+		URI = java.lang.Integer.toString(System.identityHashCode(this));
+		URI = java.lang.Integer.toString(System.identityHashCode(this));
+		setName(name);
+		setRoleID(roleID);
+		setIsAllowed(isAllowed);
+	}
+
 }

@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package Inheritance;
@@ -79,17 +79,6 @@ public class Waiter   implements java.lang.Cloneable, java.io.Serializable, org.
 		return "Waiter(" + URI + ')';
 	}
 	
-	
-	public Waiter(
-			final Inheritance.Employee Employee) {
-			
-		this.ID = --__SequenceCounterID__;
-		setEmployee(Employee);
-		this.URI = java.lang.Integer.toString(this.ID);
-		this.URI = java.lang.Integer.toString(this.ID);
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private Waiter(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -105,7 +94,7 @@ public class Waiter   implements java.lang.Cloneable, java.io.Serializable, org.
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -2821748275804626258L;
+	private static final long serialVersionUID = -4856832096173970309L;
 	
 	private int ID;
 
@@ -201,7 +190,6 @@ public class Waiter   implements java.lang.Cloneable, java.io.Serializable, org.
 		return this;
 	}
 
-	private transient Waiter __originalValue;
 	
 	static {
 		Inheritance.repositories.WaiterRepository.__setupPersist(
@@ -244,6 +232,7 @@ public class Waiter   implements java.lang.Cloneable, java.io.Serializable, org.
 			}
 		);
 	}
+	private transient Waiter __originalValue;
 	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfInheritance.Waiter")
 	public static class _ArrayXML {
@@ -291,4 +280,15 @@ public class Waiter   implements java.lang.Cloneable, java.io.Serializable, org.
 		readers[__index__extended_EmployeeURI] = (item, reader, context) -> { item.EmployeeURI = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, true); return item; };
 		readers[__index__extended_EmployeeID] = (item, reader, context) -> { item.EmployeeID = org.revenj.database.postgres.converters.IntConverter.parse(reader); return item; };
 	}
+	
+	
+	public Waiter(
+			final Inheritance.Employee Employee) {
+			
+		this.ID = --__SequenceCounterID__;
+		setEmployee(Employee);
+		this.URI = java.lang.Integer.toString(this.ID);
+		this.URI = java.lang.Integer.toString(this.ID);
+	}
+
 }

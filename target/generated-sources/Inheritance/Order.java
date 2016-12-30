@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package Inheritance;
@@ -95,23 +95,6 @@ public class Order   implements java.lang.Cloneable, java.io.Serializable, org.r
 		return "Order(" + URI + ')';
 	}
 	
-	
-	public Order(
-			final java.time.LocalDate placed,
-			final java.time.LocalDate deadline,
-			final Inheritance.Customer customer,
-			final java.util.List<Inheritance.LineItem> items) {
-			
-		this.ID = --__SequenceCounterID__;
-		setPlaced(placed);
-		setDeadline(deadline);
-		setCustomer(customer);
-		setItems(items);
-		this.URI = java.lang.Integer.toString(this.ID);
-		this.URI = java.lang.Integer.toString(this.ID);
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private Order(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -133,7 +116,7 @@ public class Order   implements java.lang.Cloneable, java.io.Serializable, org.r
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 6623648712113938442L;
+	private static final long serialVersionUID = -7475474374997498226L;
 	
 	private int ID;
 
@@ -296,7 +279,6 @@ public class Order   implements java.lang.Cloneable, java.io.Serializable, org.r
 		return this;
 	}
 
-	private transient Order __originalValue;
 	
 	static {
 		Inheritance.repositories.OrderRepository.__setupPersist(
@@ -341,6 +323,7 @@ public class Order   implements java.lang.Cloneable, java.io.Serializable, org.r
 			}
 		);
 	}
+	private transient Order __originalValue;
 	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfInheritance.Order")
 	public static class _ArrayXML {
@@ -394,4 +377,21 @@ public class Order   implements java.lang.Cloneable, java.io.Serializable, org.r
 		readers[__index__extended_customerID] = (item, reader, context) -> { item.customerID = org.revenj.database.postgres.converters.IntConverter.parseNullable(reader); return item; };
 		readers[__index__extended_items] = (item, reader, context) -> { { java.util.List<Inheritance.LineItem> __list = org.revenj.database.postgres.converters.ArrayTuple.parse(reader, context, __converter_items::fromExtended); if (__list != null) {item.items = __list;} else item.items = new java.util.ArrayList<Inheritance.LineItem>(4); }; return item; };
 	}
+	
+	
+	public Order(
+			final java.time.LocalDate placed,
+			final java.time.LocalDate deadline,
+			final Inheritance.Customer customer,
+			final java.util.List<Inheritance.LineItem> items) {
+			
+		this.ID = --__SequenceCounterID__;
+		setPlaced(placed);
+		setDeadline(deadline);
+		setCustomer(customer);
+		setItems(items);
+		this.URI = java.lang.Integer.toString(this.ID);
+		this.URI = java.lang.Integer.toString(this.ID);
+	}
+
 }

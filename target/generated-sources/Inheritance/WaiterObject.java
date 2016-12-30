@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package Inheritance;
@@ -64,7 +64,7 @@ public final class WaiterObject   implements java.io.Serializable, org.revenj.pa
 	public String toString() {
 		return "WaiterObject(" + URI + ')';
 	}
-	private static final long serialVersionUID = 424369274102403910L;
+	private static final long serialVersionUID = -6781623354245740539L;
 	
 	private final String Name;
 

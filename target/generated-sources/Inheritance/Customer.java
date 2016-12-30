@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package Inheritance;
@@ -77,17 +77,6 @@ public class Customer   implements java.lang.Cloneable, java.io.Serializable, or
 		return "Customer(" + URI + ')';
 	}
 	
-	
-	public Customer(
-			final String name) {
-			
-		this.ID = --__SequenceCounterID__;
-		setName(name);
-		this.URI = java.lang.Integer.toString(this.ID);
-		this.URI = java.lang.Integer.toString(this.ID);
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private Customer(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -101,7 +90,7 @@ public class Customer   implements java.lang.Cloneable, java.io.Serializable, or
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 89673773941481880L;
+	private static final long serialVersionUID = -3888212827959324734L;
 	
 	private int ID;
 
@@ -157,7 +146,6 @@ public class Customer   implements java.lang.Cloneable, java.io.Serializable, or
 		return this;
 	}
 
-	private transient Customer __originalValue;
 	
 	static {
 		Inheritance.repositories.CustomerRepository.__setupPersist(
@@ -200,6 +188,7 @@ public class Customer   implements java.lang.Cloneable, java.io.Serializable, or
 			}
 		);
 	}
+	private transient Customer __originalValue;
 	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfInheritance.Customer")
 	public static class _ArrayXML {
@@ -245,4 +234,15 @@ public class Customer   implements java.lang.Cloneable, java.io.Serializable, or
 		readers[__index__extended_ID] = (item, reader, context) -> { item.ID = org.revenj.database.postgres.converters.IntConverter.parse(reader); return item; };
 		readers[__index__extended_name] = (item, reader, context) -> { item.name = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
 	}
+	
+	
+	public Customer(
+			final String name) {
+			
+		this.ID = --__SequenceCounterID__;
+		setName(name);
+		this.URI = java.lang.Integer.toString(this.ID);
+		this.URI = java.lang.Integer.toString(this.ID);
+	}
+
 }

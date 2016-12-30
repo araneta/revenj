@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package security;
@@ -77,18 +77,6 @@ public class GlobalPermission   implements java.lang.Cloneable, java.io.Serializ
 		return "GlobalPermission(" + URI + ')';
 	}
 	
-	
-	public GlobalPermission(
-			final String name,
-			final boolean isAllowed) {
-			
-		URI = java.lang.Integer.toString(System.identityHashCode(this));
-		setName(name);
-		setIsAllowed(isAllowed);
-		this.URI = this.name;
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private GlobalPermission(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -102,7 +90,7 @@ public class GlobalPermission   implements java.lang.Cloneable, java.io.Serializ
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = -7272127041635231147L;
+	private static final long serialVersionUID = -4842332709624608935L;
 	
 	private String name;
 
@@ -160,7 +148,7 @@ public static class WithPrefix   implements java.io.Serializable, org.revenj.pat
 		this.prefix = "";
 	}
 
-	private static final long serialVersionUID = -144645299474456081L;
+	private static final long serialVersionUID = -4777050553139193008L;
 	
 	private String prefix;
 
@@ -191,7 +179,6 @@ public static class WithPrefix   implements java.io.Serializable, org.revenj.pat
 		}
 }
 
-	private transient GlobalPermission __originalValue;
 	
 	static {
 		security.repositories.GlobalPermissionRepository.__setupPersist(
@@ -234,6 +221,7 @@ public static class WithPrefix   implements java.io.Serializable, org.revenj.pat
 			}
 		);
 	}
+	private transient GlobalPermission __originalValue;
 	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfsecurity.GlobalPermission")
 	public static class _ArrayXML {
@@ -279,4 +267,16 @@ public static class WithPrefix   implements java.io.Serializable, org.revenj.pat
 		readers[__index__extended_name] = (item, reader, context) -> { item.name = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, false); return item; };
 		readers[__index__extended_isAllowed] = (item, reader, context) -> { item.isAllowed = org.revenj.database.postgres.converters.BoolConverter.parse(reader); return item; };
 	}
+	
+	
+	public GlobalPermission(
+			final String name,
+			final boolean isAllowed) {
+			
+		URI = java.lang.Integer.toString(System.identityHashCode(this));
+		setName(name);
+		setIsAllowed(isAllowed);
+		this.URI = this.name;
+	}
+
 }

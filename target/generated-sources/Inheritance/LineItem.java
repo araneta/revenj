@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package Inheritance;
@@ -84,18 +84,6 @@ public class LineItem   implements java.lang.Cloneable, java.io.Serializable {
 		return "LineItem(" + URI + ')';
 	}
 	
-	
-	public LineItem(
-			final String productName,
-			final java.math.BigDecimal quantity) {
-			
-		URI = java.lang.Integer.toString(System.identityHashCode(this));
-		URI = java.lang.Integer.toString(System.identityHashCode(this));
-		setProductName(productName);
-		setQuantity(quantity);
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private LineItem(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -113,7 +101,7 @@ public class LineItem   implements java.lang.Cloneable, java.io.Serializable {
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 1110068904377445895L;
+	private static final long serialVersionUID = 89883957929248903L;
 	
 	private String productName;
 
@@ -251,4 +239,16 @@ public class LineItem   implements java.lang.Cloneable, java.io.Serializable {
 		readers[__index__extended_OrderID] = (item, reader, context) -> { item.OrderID = org.revenj.database.postgres.converters.IntConverter.parse(reader); return item; };
 		readers[__index__extended_Index] = (item, reader, context) -> { item.Index = org.revenj.database.postgres.converters.IntConverter.parse(reader); return item; };
 	}
+	
+	
+	public LineItem(
+			final String productName,
+			final java.math.BigDecimal quantity) {
+			
+		URI = java.lang.Integer.toString(System.identityHashCode(this));
+		URI = java.lang.Integer.toString(System.identityHashCode(this));
+		setProductName(productName);
+		setQuantity(quantity);
+	}
+
 }

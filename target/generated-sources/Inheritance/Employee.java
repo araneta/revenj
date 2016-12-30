@@ -1,6 +1,6 @@
 /*
 * Created by DSL Platform
-* v1.7.6200.20202 
+* v1.7.6207.41740 
 */
 
 package Inheritance;
@@ -83,19 +83,6 @@ public class Employee   implements java.lang.Cloneable, java.io.Serializable, or
 		return "Employee(" + URI + ')';
 	}
 	
-	
-	public Employee(
-			final java.time.LocalDate StartedWorking,
-			final Inheritance.Person Person) {
-			
-		this.ID = --__SequenceCounterID__;
-		setStartedWorking(StartedWorking);
-		setPerson(Person);
-		this.URI = java.lang.Integer.toString(this.ID);
-		this.URI = java.lang.Integer.toString(this.ID);
-	}
-
-	
 	@com.fasterxml.jackson.annotation.JsonCreator private Employee(
 			@com.fasterxml.jackson.annotation.JsonProperty("URI") final String URI ,
 			@com.fasterxml.jackson.annotation.JacksonInject("__locator") final org.revenj.patterns.ServiceLocator __locator,
@@ -113,7 +100,7 @@ public class Employee   implements java.lang.Cloneable, java.io.Serializable, or
 
 	
 	private transient java.util.Optional<org.revenj.patterns.ServiceLocator> __locator = java.util.Optional.empty();
-	private static final long serialVersionUID = 155110336508059789L;
+	private static final long serialVersionUID = 5364138656247266583L;
 	
 	private int ID;
 
@@ -228,7 +215,6 @@ public class Employee   implements java.lang.Cloneable, java.io.Serializable, or
 		return this;
 	}
 
-	private transient Employee __originalValue;
 	
 	static {
 		Inheritance.repositories.EmployeeRepository.__setupPersist(
@@ -271,6 +257,7 @@ public class Employee   implements java.lang.Cloneable, java.io.Serializable, or
 			}
 		);
 	}
+	private transient Employee __originalValue;
 	
 	@javax.xml.bind.annotation.XmlRootElement(name = "ArrayOfInheritance.Employee")
 	public static class _ArrayXML {
@@ -320,4 +307,17 @@ public class Employee   implements java.lang.Cloneable, java.io.Serializable, or
 		readers[__index__extended_PersonURI] = (item, reader, context) -> { item.PersonURI = org.revenj.database.postgres.converters.StringConverter.parse(reader, context, true); return item; };
 		readers[__index__extended_PersonID] = (item, reader, context) -> { item.PersonID = org.revenj.database.postgres.converters.IntConverter.parse(reader); return item; };
 	}
+	
+	
+	public Employee(
+			final java.time.LocalDate StartedWorking,
+			final Inheritance.Person Person) {
+			
+		this.ID = --__SequenceCounterID__;
+		setStartedWorking(StartedWorking);
+		setPerson(Person);
+		this.URI = java.lang.Integer.toString(this.ID);
+		this.URI = java.lang.Integer.toString(this.ID);
+	}
+
 }
