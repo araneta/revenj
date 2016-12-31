@@ -51,7 +51,7 @@ public class JwtTokenFactory {
         claims.put("scopes", userContext.getAuthorities().stream().map(s -> s.toString()).collect(Collectors.toList()));
 
         DateTime currentTime = new DateTime();
-
+        System.out.print("exp"+settings.getTokenExpirationTime().toString());
         String token = Jwts.builder()
           .setClaims(claims)
           .setIssuer(settings.getTokenIssuer())
