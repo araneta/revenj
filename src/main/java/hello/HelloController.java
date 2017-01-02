@@ -26,4 +26,9 @@ public class HelloController {
 		context.create(world);
 		return world.getURI();
 	}
+
+	@RequestMapping("/api/me")
+	public List<World> about() {
+		return context.search(World.class);
+	}
 }
