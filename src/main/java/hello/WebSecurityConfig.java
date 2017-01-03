@@ -73,6 +73,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         filter.setAuthenticationManager(this.authenticationManager);
         return filter;
     }
+    @Bean
+    protected JwtTokenAuthenticationProcessingFilter buildJwtTokenAuthenticationProcessingFilter2() throws Exception {
+        List<String> pathsToSkip = Arrays.asList(TOKEN_REFRESH_ENTRY_POINT, FORM_BASED_LOGIN_ENTRY_POINT);
+        SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(pathsToSkip, EVENT_ENTRY_POINT);
+        JwtTokenAuthenticationProcessingFilter filter
+                = new JwtTokenAuthenticationProcessingFilter(failureHandler, tokenExtractor, matcher);
+        filter.setAuthenticationManager(this.authenticationManager);
+        return filter;
+    }
 
     @Bean
     @Override
@@ -114,9 +123,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(EVENT_ENTRY_POINT).authenticated() // Protected Event End-points
         .and()
             .addFilterBefore(buildAjaxLoginProcessingFilter(), UsernamePasswordAuthenticationFilter.class)
-            .addFilterBefore(buildJwtTokenAuthenticationProcessingFilter(), UsernamePasswordAuthenticationFilter.class);
+            .addFilterBefore(buildJwtTokenAuthenticationProcessingFilter(), UsernamePasswordAuthenticationFilter.class)
+            .addFilterBefore(buildJwtTokenAuthenticationProcessingFilter2(), UsernamePasswordAuthenticationFilter.class);
     }
-    /*
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth, DataContext context) throws Exception {
         List<User> users = context.search(User.class);
@@ -130,5 +140,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 builder.roles(role);
             }
         }
-    }*/
+    }
 }
