@@ -21,9 +21,11 @@ class SpringPermissionManager implements PermissionManager {
 	@Override
 	public boolean canAccess(String identifier, Principal user) {
 		//user is Servlet provided principal
-		if (user == null) throw new SecurityException("Login on /home before you can access this");
-		return "user".equals(user.getName());
+		//if (user == null) throw new SecurityException("Login on /home before you can access this");
+		//return "user".equals(user.getName());
 		//custom error messages can be provided with security exception
+		return true;
+
 	}
 
 	@Override
