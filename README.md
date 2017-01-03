@@ -12,8 +12,8 @@ Postman-Token: e0427c12-3f59-d251-395a-ebbe14fbd1d6
 #password is base64
 
 #login
-curl -X POST -H "X-Requested-With: XMLHttpRequest" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{"username": "user","password": "user"}' "http://localhost:8080/api/auth/login"
+curl -X POST -H "X-Requested-With: XMLHttpRequest" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{"username": "admin","password": "admin"}' "http://localhost:8080/api/auth/login"
 #about
-curl -X GET -H "X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwic2NvcGVzIjpbIkdPRE1PREUiXSwiaXNzIjoiaHR0cDovL3N2bGFkYS5jb20iLCJpYXQiOjE0ODMzMjgwNjUsImV4cCI6MTQ4MzMyODk2NX0.c7UpiYTCi0uhxk0OQK0Y3VN_cbr9u0kJxr6WjJhEb8X_69ELkDwVWT_dObKo5dANXnxqJ8pwvuk6pNzl04PyQg" -H "Cache-Control: no-cache" "http://localhost:8080/api/me
+curl -X GET -H "X-Authorization: Bearer token" -H "Cache-Control: no-cache" "http://localhost:8080/api/me
 #post event
-curl -X POST -H "X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwic2NvcGVzIjpbIkdPRE1PREUiXSwiaXNzIjoiaHR0cDovL3N2bGFkYS5jb20iLCJpYXQiOjE0ODMzNjQxNzUsImV4cCI6MTQ4MzM2NTA3NX0.pFxZquUAaioGxrlpOQdjseulyHYzADXncaN7qJ0KLUbXz2aoL8nnGH_84Ca3Bd0x0Q7sSpx31rb8JB40dfZACQ" -H "X-Requested-With: XMLHttpRequest" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{"username": "Table10","password": "YWJj"}' "http://localhost:8080/Domain.svc/submit/security.RegisterUser"
+curl -X POST -H "X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6WyJBRE1JTiJdLCJpc3MiOiJodHRwOi8vc3ZsYWRhLmNvbSIsImlhdCI6MTQ4MzQzMjgyMywiZXhwIjoxNDgzNDMzNzIzfQ.GavvoN7sFNJEc7E-W2XnOolmr7kP5TMoqRgKRd2W7myi_AsdKsbCFW_ZZI2qKosbYkRBbpOLSu-_V4GBE724Uw" -H "X-Requested-With: XMLHttpRequest" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{"username": "Table10","password": "YWJj"}' "http://localhost:8080/Domain.svc/submit/security.RegisterUser"

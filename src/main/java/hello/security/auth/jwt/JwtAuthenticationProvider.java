@@ -51,7 +51,7 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
                 .collect(Collectors.toList());
         
         UserContext context = UserContext.create(subject, authorities);
-        
+        System.out.println(authorities.toString());
         return new JwtAuthenticationToken(context, context.getAuthorities());
     }
 
